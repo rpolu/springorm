@@ -7,32 +7,31 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Employee Details</h1>
-	<table border="1" width="50%">
+	<h1>New Registration</h1>
+	<form action="registration">
+	<table>
 		<tr>
 			<th>PS Number</th>
-			<td>${requestScope.emp.empId }</td>
+			<td><input name="empId" type="text">
 		</tr>
 		<tr>
 			<th>First Name</th>
-			<td>${requestScope.emp.firstName }</td>
+			<td><input name="firstName" type="text">
 		</tr>
 		<tr>
 			<th>Last Name</th>
-			<td>${requestScope.emp.lastName }</td>
+			<td><input name="lastName" type="text">
 		</tr>
 		<tr>
 			<th>Email</th>
-			<td>${requestScope.emp.email }</td>
+			<td><input name="email" type="email">
 		</tr>
 		<tr>
 			<th>Hire Date</th>
-			<td>${requestScope.emp.hireDate }</td>
+			<td><input name="hireDate" type="date">
 		</tr>
-		<tr>
-			<th>Job Id</th>
-			<td>${requestScope.emp.jobId }</td>
-		</tr>
+		<tr><td colspan="2"><input type="submit"></td></tr>
 	</table>
+	</form>
 </body>
 </html>

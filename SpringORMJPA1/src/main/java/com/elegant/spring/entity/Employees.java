@@ -22,7 +22,6 @@ public class Employees {
 	private String lastName;
 	private String email;
 	private Date hireDate;
-	private String jobId;
 	
 	public Employees(int empId, String firstName) {
 		super();
@@ -77,16 +76,7 @@ public class Employees {
 	public void setHireDate(Date hireDate) {
 		this.hireDate = hireDate;
 	}
-
-	@Column(name="JOB_ID")
-	public String getJobId() {
-		return jobId;
-	}
-
-	public void setJobId(String jobId) {
-		this.jobId = jobId;
-	}
-
+	
 	@Override
 	public String toString() {
 		return "Employees [empId=" + empId + ", firstName=" + firstName + "]";

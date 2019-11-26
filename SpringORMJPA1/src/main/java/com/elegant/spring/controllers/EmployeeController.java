@@ -2,9 +2,9 @@ package com.elegant.spring.controllers;
 
 import java.util.List;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,12 +17,13 @@ import com.elegant.spring.services.EmpServices;
 @Controller
 public class EmployeeController {
 
-	@Resource
+	@Autowired
 	private EmpServices services;
 
-	@RequestMapping("/home")
-	public String getHomePage() {
-		return "Home";
+	@RequestMapping("/")
+	public ModelAndView getHomePage() {
+		ModelAndView view = new ModelAndView("home");
+		return view;
 	}
 
 	@RequestMapping("/empList")
@@ -64,16 +65,22 @@ public class EmployeeController {
 	}
 
 	@RequestMapping("/registration")
-	public String registerEmp(HttpServletRequest req) {
+	public ModelAndView registerEmp(HttpServletRequest req) {
 		String strEmpId = req.getParameter("empId");
+		String firstName = req.getParameter("firstName");
+		String lastName = req.getParameter("lastName");
+		String email = req.getParameter("email");
 		Employees emp = new Employees();
 		emp.setEmpId(Integer.parseInt(strEmpId));
-
+		emp.setFirstName(firstName);
+		emp.setLastName(lastName);
+		emp.setEmail(email);
 		try {
 			services.joinEmployee(emp);
 		} catch (EmpException e) {
 			e.printStackTrace();
 		}
-		return "SuccInsert";
+		ModelAndView view = new ModelAndView("home");
+		return view;
 	}
 }

@@ -7,35 +7,24 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>New Registration</h1>
-	<form action="registration">
-	<table>
+	<h1>Employee Details</h1>
+	<table border="1" width="50%">
 		<tr>
 			<th>PS Number</th>
-			<td><input name="empId" type="text">
+			<td>${requestScope.emp.empId }</td>
 		</tr>
 		<tr>
 			<th>First Name</th>
-			<td><input name="firstName" type="text">
+			<td>${requestScope.emp.firstName }</td>
 		</tr>
 		<tr>
 			<th>Last Name</th>
-			<td><input name="lastName" type="text">
+			<td>${requestScope.emp.lastName }</td>
 		</tr>
 		<tr>
 			<th>Email</th>
-			<td><input name="email" type="email">
+			<td>${requestScope.emp.email }</td>
 		</tr>
-		<tr>
-			<th>Hire Date</th>
-			<td><input name="hireDate" type="date">
-		</tr>
-		<tr>
-			<th>Job Id</th>
-			<td><input name="jobId" type="text">
-		</tr>
-		<tr><td colspan="2"><input type="submit"></td></tr>
 	</table>
-	</form>
 </body>
 </html>
